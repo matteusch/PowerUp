@@ -1,0 +1,37 @@
+# --- STM32CubeIDE / CubeMX Junk ---
+bin/
+obj/
+Debug/
+Release/
+*.list
+*.map
+*.hex
+*.bin
+*.elf
+*.launch
+*.o
+*.d
+*.su
+.settings/
+.project
+.cproject
+
+# --- Arduino / PlatformIO ---
+applet/
+*.hex
+*.bin
+build/
+.build/
+*.symbol
+*.map
+
+# --- VS Code & IDEs ---
+.vscode/
+.idea/
+.history/
+*.log
+
+# --- OS & System Junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
