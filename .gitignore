@@ -12,9 +12,6 @@ Release/
 *.o
 *.d
 *.su
-.settings/
-.project
-.cproject
 
 # --- Arduino / PlatformIO ---
 applet/
