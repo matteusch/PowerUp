@@ -20,7 +20,7 @@ unsigned long lastTimeBotRan = 0;
 void setup() {
   // Init serial
   Serial.begin(115200);
-  delay(1000);
+  delay(5000); // This needs to be here, otherwise some messages don't get printed via serial
 
 // Check for wifi connection
 
@@ -33,6 +33,8 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
+
+  Serial.println("WiFi connection established.");
 
   secured_client.setInsecure();
 
@@ -47,7 +49,6 @@ void loop() {
     int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
 
     while (numNewMessages) {
-      Serial.println("New message detected.");
       handleNewMessages(numNewMessages);
       numNewMessages = bot.getUpdates(bot.last_message_received + 1);
     }
@@ -64,20 +65,18 @@ void handleNewMessages(int numNewMessages) {
     
     String text = bot.messages[i].text;
 
-    Serial.println("Message: " + text);
-
     if (text == "/on") {
-      Serial.println("Command: ON");
+      Serial.println("ON");
       bot.sendMessage(chat_id, "Turning PC on...");
     }
     
     else if (text == "/status") {
-      Serial.println("Command: STATUS");
+      Serial.println("STATUS");
       bot.sendMessage(chat_id, "System online");
     }
 
     else if (text == "/off"){
-      Serial.println("Command: OFF");
+      Serial.println("OFF");
       bot.sendMessage(chat_id, "Turning PC off...");
     }
 
