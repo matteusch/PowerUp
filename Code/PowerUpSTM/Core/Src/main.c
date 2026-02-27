@@ -97,6 +97,8 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
   HAL_UART_Receive_IT(&huart1, &rx_byte, 1);
 
   /* USER CODE END 2 */
@@ -109,12 +111,20 @@ int main(void)
 
       /* USER CODE BEGIN 3 */
 
+	  // Control loop
+
 	  if (command_ready == 1) {
 		  if (strcmp(rx_buffer, "ON") == 0) {
 			  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+			  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 1500);
+			  HAL_Delay(1000);
+			  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 1000);
 		  }
 		  if (strcmp(rx_buffer, "OFF") == 0) {
 			  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+			  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 1500);
+			  HAL_Delay(6000);
+			  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 1000);
 		  }
 
 		  command_ready = 0;
