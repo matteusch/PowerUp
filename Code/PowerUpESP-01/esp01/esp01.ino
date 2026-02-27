@@ -2,12 +2,7 @@
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
 #include <ArduinoJson.h>
-
-// WiFi and Telegram data
-const char* ssid = "#";
-const char* password = "#";
-const char* BOT_TOKEN = "#";
-const char* CHAT_ID = "#";
+#include "confidential.h"
 
 // Setup a secure connection for Telegram
 WiFiClientSecure secured_client;
@@ -25,9 +20,9 @@ void setup() {
 // Check for wifi connection
 
   Serial.println("Attempting to connect to WiFi:");
-  Serial.println(ssid);
+  Serial.println(WIFI_SSID);
   WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);

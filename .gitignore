@@ -22,13 +22,16 @@ build/
 *.symbol
 *.map
 
-# --- VS Code & IDEs ---
+# --- VS Code and IDEs ---
 .vscode/
 .idea/
 .history/
 *.log
 
-# --- OS & System Junk ---
+# --- OS and System Junk ---
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# --- Passwords and confidential
+confidential.h
