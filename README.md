@@ -1,6 +1,6 @@
 # PowerUp
 
-PowerUp is a remote switch used to turn a PC on utilising a STM32F103C8T6, an ESP-01 and a SG-90 servo: instead of relays or modifing the motherboard, a servo arm physically presses the PC's power button on command.
+PowerUp is a remote switch used to turn a PC on utilising a STM32F103C8T6, an ESP-01 and a SG-90 servo: instead of relays or modifying the motherboard, a servo arm physically presses the PC's power button on command.
 
 ## How it works
 
